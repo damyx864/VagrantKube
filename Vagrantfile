@@ -7,9 +7,9 @@ WORKER_COUNT = 2
 POD_CIDR = "172.18.0.0/16"
 API_ADV_ADDRESS = "10.8.8.10"
 KVMSG = "Kuberverse"
-COMMON_SCRIPT_URL = ""
-MASTER_SCRIPT_URL = ""
-WORKER_SCRIPT_URL = ""
+COMMON_SCRIPT_URL = "https://raw.githubusercontent.com/damyx864/VagrantKube/master/common.sh"
+MASTER_SCRIPT_URL = "https://raw.githubusercontent.com/damyx864/VagrantKube/master/master.sh"
+WORKER_SCRIPT_URL = "https://raw.githubusercontent.com/damyx864/VagrantKube/master/worker.sh"
 
 Vagrant.configure("2") do |config|
 
