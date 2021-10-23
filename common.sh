@@ -16,7 +16,7 @@ apt-get update && apt-get install apt-transport-https ca-certificates curl softw
 curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add -
 
 ### Kubernetes Repo
-echo "deb  http://apt.kubernetes.io/  kubernetes-focal  main" > /etc/apt/sources.list.d/kubernetes.list
+echo "deb  http://apt.kubernetes.io/  kubernetes-xenial  main" > /etc/apt/sources.list.d/kubernetes.list
 
 ### Add Docker’s official GPG key
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
@@ -24,7 +24,7 @@ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
 ### Add Docker apt repository.
 add-apt-repository \
   "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
-  $(lsb_release -cs) \
+  xenial \
   stable"
 
 echo "********** $KVMSG"
@@ -33,6 +33,14 @@ echo "********** $KVMSG ->> Updating Repositories"
 echo "********** $KVMSG"
 echo "********** $KVMSG"
 apt-get update
+
+echo "********** $KVMSG"
+echo "********** $KVMSG"
+echo "********** $KVMSG ->> Disabling SWAP"
+echo "********** $KVMSG"
+echo "********** $KVMSG"
+swapoff -a
+sed -i '/ swap / s/^/#/' /etc/fstab
 
 echo "********** $KVMSG"
 echo "********** $KVMSG"
